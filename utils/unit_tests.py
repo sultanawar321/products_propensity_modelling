@@ -1,3 +1,4 @@
+"""A module that includes basic unit tests for the main functions"""
 import sys
 
 sys.path.append("../src/")
