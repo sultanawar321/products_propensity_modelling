@@ -1,7 +1,7 @@
 # products_propensity_modelling
 This project includes a ML project to estimate the propensity (likelihood) of a customer purchasing a product. 
 
-- Consider a scenario where you aim to send campaign communication messages to customers regarding three different products, and you want to identift the most suitable product for each customer. This project uses machine learning to predict the engagement propensity of each product for every customer, subsequently selecting the recommended product based on the highest propensity. The dataset is taken from [Kaggle](https://www.kaggle.com/datasets/goyaladi/customer-spending-dataset) with some additional dummy variables created for the purpose of this excercise. 
+- Consider a scenario where you aim to send campaign communication messages to customers regarding three different products, and you want to identify the most suitable product for each customer. This project uses machine learning to predict the engagement propensity of each product by every customer, subsequently selecting the recommended product based on the highest propensity. The dataset is taken from [Kaggle](https://www.kaggle.com/datasets/goyaladi/customer-spending-dataset) with some additional dummy variables created for the purpose of this excercise. 
 
 # The repo structure is as follows:
 
