@@ -58,7 +58,7 @@ def test_stratified_split(sample_data):
 
 @pytest.fixture
 def sample_data_1():
-    # Generate sample data
+    # Generate sample data for ml training test
     data = {
         "age": ["5", "6", "6", "9", "0"],
         "income": [1, 2, 3, 4, 5],

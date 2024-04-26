@@ -1,5 +1,5 @@
 """
-Module docstring: This module defines constants used in the project.
+This module defines constants used in the project.
 """
 
 # Class Distributions to create the dummy dependent variables
@@ -14,7 +14,7 @@ NUM_SPLITS = 3
 # Random state
 RANDOM_STATE = 42
 
-# Oversampling ratio for class 1
+# SMOTE Oversampling ratio for class 1
 SMOTE_DESIRED_RATIO = 0.7
 
 # Proportion of data to be set for validation and test purposes

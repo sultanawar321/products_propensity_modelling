@@ -1,10 +1,11 @@
 """
-Module docstring: This module provides functions for data transformation and ml modelling.
+This module provides functions for data transformation and ml modelling.
 """
 import time
 import pandas as pd
 import numpy as np
 from loguru import logger
+
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
@@ -15,12 +16,13 @@ from sklearn.metrics import (
     classification_report,
     f1_score,
 )
+
 import const as c
 
 
 def build_ml_pipeline():
     """
-    This function builds an ML pipleine with Grid Search
+    This function builds an ML pipleine.
     """
     # Define preprocessing steps for numerical and categorical features
     numerical_transformer = Pipeline(
@@ -50,7 +52,7 @@ def build_ml_pipeline():
             ("cat", categorical_transformer, c.CATEGORICAL_FEATURES),
         ]
     )
-    # Create a pipeline which combines the data preprocesser and xgboost model
+    # Create a pipeline which combines the data preprocesser and random forest model
     ml_pipeline = Pipeline(
         steps=[
             ("preprocessor", preprocessor),
@@ -73,7 +75,7 @@ def build_ml_pipeline():
 
 def train_classification_model(x_train, y_train, x_test, y_test, product_name):
     """
-    this function trains the ML model on each product separately
+    this function trains the ML model on each product separately.
     """
     start_time = time.time()  # Record the start time
     model = build_ml_pipeline()
@@ -91,7 +93,7 @@ def train_classification_model(x_train, y_train, x_test, y_test, product_name):
         f"Confusion Matrix of {product_name} Model on Test-set: {confusion_matrix_result}"
     )
     f1_score_val = round(f1_score(y_test, y_predict, average="micro"), 2)
-    # Log the model F-1 score on val set
+    # Log the model F-1 score
     logger.info(f"F1 Score of {product_name} Model on Validation-set: {f1_score_val}")
     end_time = time.time()  # Record the end time
     run_time = end_time - start_time  # Calculate the elapsed time in secs
@@ -110,16 +112,16 @@ def final_inference(
 ):
 
     """
-    this function generates predictions on dataset and get the reccomended product at account level
+    this function generates predictions onreal dataset and get the reccomended product at account level
     """
     inference_df = pd.concat(
         [x_test_product_a, x_test_product_b, x_test_product_c]
     ).sample(frac=0.4, random_state=c.RANDOM_STATE)
-    # get predictions
+    # get predictions of each product separately
     y_pred_proba_product_a = model_product_a.predict_proba(inference_df)[:, 1]
     y_pred_proba_product_b = model_product_b.predict_proba(inference_df)[:, 1]
     y_pred_proba_product_c = model_product_c.predict_proba(inference_df)[:, 1]
-    # create propensities columns with rounded probab
+    # create propensities columns with rounded probabaility
     inference_df["predicted_propensity_product_a"] = np.round(y_pred_proba_product_a, 3)
     inference_df["predicted_propensity_product_b"] = np.round(y_pred_proba_product_b, 3)
     inference_df["predicted_propensity_product_c"] = np.round(y_pred_proba_product_c, 3)

@@ -1,5 +1,5 @@
 """
-Module docstring: This module provides functions for data preparation and preprocessing.
+This module provides functions for data preparation and preprocessing.
 """
 
 import os
@@ -25,7 +25,7 @@ def load_data():
 
 def data_prep(data):
     """
-    Prepares the data by generating additional features to be used in predictive modelling
+    Prepares the data by generating additional features to be used in predictive modelling.
     """
     data["account_tenure_months"] = np.random.randint(1, 49, size=len(data))
     data["num_comms_msgs"] = np.random.randint(0, 10, size=len(data))
@@ -90,7 +90,8 @@ def select_independent_dependent_variables(data):
 
 def stratified_split(modelling_df, target_variable, target_variable_name, test_size):
     """
-    Performs stratified splitting of the data into train and test sets.
+    Performs stratified splitting of the data into train and test sets to ensure all 
+    categorical groups are represented.
     """
     split = StratifiedShuffleSplit(
         n_splits=c.NUM_SPLITS, test_size=test_size, random_state=c.RANDOM_STATE

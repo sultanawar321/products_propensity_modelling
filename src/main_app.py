@@ -1,5 +1,5 @@
 """
-Module docstring: This module includes a class that process all functions.
+This module includes a class that process all functions.
 """
 
 from data_preparation import final_data_prep
@@ -8,7 +8,7 @@ from ml_modelling import train_classification_model, final_inference
 
 class ProductPropensities:
     """
-    This class runs all the processing and training steps and generates results
+    This class runs all the processing and training steps and generates results.
     """
 
     def __init__(self):
@@ -18,7 +18,7 @@ class ProductPropensities:
 
     def train_evaluate_ml(self):
         """
-        this function combines all previous processing, training, and inference functions
+        this function combines all previous processing, training, and inference functions.
         """
         (
             x_train_product_a,
