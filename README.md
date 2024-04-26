@@ -11,8 +11,8 @@ This project includes a ML project to estimate the propensity (likelihood) of a 
 2) src
 - const.py: a Python module defines constants used in the project
 - data_preparation.py: a Python module provides functions for data preparation and preprocessing
-- ml_modelling.py: a Python module provides functions for data transformation, ml training and inference
-- main_app.py: a Python module includes a class that process the whole functions from data prep to ml training and inference
+- ml_modelling.py: a Python module provides functions for data transformation, ml training, and inference
+- main_app.py: a Python module includes a class that process the whole functions from data prep to ml training, and inference
 
 3) utils
 - unit_tests.py: a Python module includes basic unit tests for the main functions
@@ -20,11 +20,19 @@ This project includes a ML project to estimate the propensity (likelihood) of a 
 # Model Execution:
 - python main_app.py
 
-# Unit tests Execution:
+# Unit Testing Execution:
 - pytest unit_test.py
 
 # Python Packaging:
 - Poetry installed
+- scikit-learn = "1.2.2"
+- loguru = "0.6.0"
+- numpy = "1.22.4"
+- pytest = "7.3.1"
+- pandas = "1.5.3"
+- imblearn = "0.12.2"
+
+
 
 
 
